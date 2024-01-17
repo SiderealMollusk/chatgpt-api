@@ -39,9 +39,12 @@
   "dependencies": {
     "cac": "^6.7.14",
     "conf": "^11.0.1",
+    "dotenv": "^16.3.1",
+    "esm": "^3.2.25",
     "eventsource-parser": "^1.0.0",
     "js-tiktoken": "^1.0.5",
     "keyv": "^4.5.2",
+    "openai": "^4.24.7",
     "p-timeout": "^6.1.1",
     "quick-lru": "^6.1.1",
     "read-pkg-up": "^9.1.0",

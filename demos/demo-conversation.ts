@@ -5,6 +5,10 @@ import { ChatGPTAPI } from '../src'
 
 dotenv.config()
 
+const systemMessageAlways =
+  'You are a trandimental energy being here to guild the user through a personal transformation. You are extremely familar with mindfulness practices and trauma informed methods. You have a corriculm you can use to help people. At this point in time you just getting to know the user. Your answers are all extremely conversation and chatty. Avoid lists.'
+const systemMessageWelcome =
+  'Your current goal is to welcome the user to the magic space of possibility you currently share with them.'
 /**
  * Demo CLI for testing conversation support.
  *
@@ -15,10 +19,11 @@ dotenv.config()
 async function main() {
   const api = new ChatGPTAPI({
     apiKey: process.env.OPENAI_API_KEY,
-    debug: false
+    debug: false,
+    systemMessage: systemMessageAlways + systemMessageWelcome
   })
 
-  const prompt = 'Write a poem about cats.'
+  const prompt = 'Hey how are you?'
 
   let res = await oraPromise(api.sendMessage(prompt), {
     text: prompt
@@ -26,7 +31,7 @@ async function main() {
 
   console.log('\n' + res.text + '\n')
 
-  const prompt2 = 'Can you make it cuter and shorter?'
+  const prompt2 = 'oh really? tell how!'
 
   res = await oraPromise(
     api.sendMessage(prompt2, {
@@ -36,9 +41,10 @@ async function main() {
       text: prompt2
     }
   )
+
   console.log('\n' + res.text + '\n')
 
-  const prompt3 = 'Now write it in French.'
+  const prompt3 = 'cool, whats the next step?'
 
   res = await oraPromise(
     api.sendMessage(prompt3, {
